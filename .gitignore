@@ -36,3 +36,8 @@
 *.opendb
 *.tlog
 *.tlog
+NEU-Mathe-Local/x64/Debug/NEU-Mathe-Local.Build.CppClean.log
+*.log
+*.idb
+*.pdb
+*.ilk
