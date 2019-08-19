@@ -28,6 +28,8 @@ public:
 	enum Answer { A = 1, B, C, D } answer;
 	static int currentChapter;
 	static int currentSection;
+
+	~RecordProvider() { saveFile(); }
 	static void initialize(int chapter, int section) {
 		currentChapter = chapter;
 		currentSection = section;
@@ -45,14 +47,18 @@ public:
 			reader >> tempAns >> tempHasDone >> tempHasMarked;
 			dataArray.PushBack(RecordUnit(tempAns, tempHasDone, tempHasMarked));
 		}
+		reader.close();
 	}
 	static void saveFile() {
-
 		ostringstream oss;
 		oss << BasePath << currentChapter << "\\" << currentSection << "\\" << "data.txt";
-		ifstream reader;
-		reader.open(oss.str(), ios::out);
-
+		ofstream writter;
+		writter.open(oss.str(), ios::out);
+		writter << dataArray.Size() << endl;
+		for (auto& i : dataArray) {
+			writter << i.answer << i.hasDone << i.hasMarked << endl;
+		}
+		writter.close();
 	}
 	static Answer getAnswer(int index) {
 		return (Answer)dataArray[index - 1].answer;

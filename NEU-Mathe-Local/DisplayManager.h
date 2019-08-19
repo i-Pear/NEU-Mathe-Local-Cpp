@@ -59,7 +59,9 @@ public:
 	}
 	static void initialize() {
 		window = NULL;
+		beginPaint();
 		setTextFont("Microsoft YaHei Light");
+		endPaint();
 		switchWindow(Welcome);
 		repaint();
 	}

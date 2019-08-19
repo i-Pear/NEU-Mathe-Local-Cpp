@@ -144,7 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="acllib.c" />
-    <ClCompile Include="DataWrapper.cpp" />
+    <ClCompile Include="RecordWrapper.cpp" />
     <ClCompile Include="DisplayManager.cpp" />
     <ClCompile Include="FormBase.cpp" />
     <ClCompile Include="hashmap.cpp" />

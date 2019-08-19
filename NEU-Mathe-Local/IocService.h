@@ -30,6 +30,8 @@ public:
 	URI uri;
 	ACL_Image images[6];
 	enum Answer { A = 1, B, C, D } answer;
+
+	ProblemData() :uri(0, 0, 0) {} // Build an empty data unit for init
 	ProblemData(int chapter, int section, int index):uri(chapter,section,index) {
 		_loadImage(uri.chapter, uri.section, uri.index);
 		answer = Answer(RecordProvider::getAnswer(uri.index));
@@ -55,21 +57,22 @@ public:
 };
 
 class IocService {
-public:
-	static const unsigned int maxCapcity;
+private:
+	static const unsigned int maxCapacity;
 	static list<ProblemData> imageList;
-	static ProblemData& getImage(int chapter, int section, int index) {
+public:
+	static ProblemData& getProblemData (int chapter, int section, int index) {
 		URI uri(chapter, section, index);
-		return getImage(uri);
+		return getProblemData(uri);
 	}
-	static ProblemData& getImage(URI destUri) {
+	static ProblemData& getProblemData(URI destUri) {
 		for (auto& i : imageList) {
 			if (i.uri == destUri) {
 				return i;
 			}
 		}
 		imageList.PushFront(ProblemData(destUri));
-		if (imageList.Size() > maxCapcity) {
+		if (imageList.Size() > maxCapacity) {
 			imageList.PopBack();
 		}
 		/*  这里应该有一个把已存在的数据提到链表最前的feature
