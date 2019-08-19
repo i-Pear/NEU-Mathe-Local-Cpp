@@ -33,3 +33,6 @@
 *.ipch
 .vs/NEU-Mathe-Local/v16/Browse.VC.db
 *.log
+*.opendb
+*.tlog
+*.tlog
