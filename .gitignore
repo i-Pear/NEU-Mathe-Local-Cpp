@@ -31,13 +31,13 @@
 *.out
 *.app
 *.ipch
-.vs/NEU-Mathe-Local/v16/Browse.VC.db
+.vs/NEU-Mathe-Local/v16/
 *.log
 *.opendb
 *.tlog
-*.tlog
-NEU-Mathe-Local/x64/Debug/NEU-Mathe-Local.Build.CppClean.log
-*.log
+NEU-Mathe-Local/x64/
 *.idb
 *.pdb
 *.ilk
+.vs/
+x64/
