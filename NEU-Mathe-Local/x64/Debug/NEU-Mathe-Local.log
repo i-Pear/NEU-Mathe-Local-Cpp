@@ -1,6 +1,0 @@
-﻿  DisplayManager.cpp
-G:\Important\学习\大一末 小学期\C++ Design\NEU-Mathe-Local\NEU-Mathe-Local\vector.h(120): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-  G:\Important\学习\大一末 小学期\C++ Design\NEU-Mathe-Local\NEU-Mathe-Local\vector.h(117): note: 编译 类 模板 成员函数 "void Vector<RecordUnit>::Reserve(size_t)" 时
-  G:\Important\学习\大一末 小学期\C++ Design\NEU-Mathe-Local\NEU-Mathe-Local\vector.h(27): note: 参见对正在编译的函数 模板 实例化“void Vector<RecordUnit>::Reserve(size_t)”的引用
-  G:\Important\学习\大一末 小学期\C++ Design\NEU-Mathe-Local\NEU-Mathe-Local\RecordWrapper.h(42): note: 参见对正在编译的 类 模板 实例化 "Vector<RecordUnit>" 的引用
-  NEU-Mathe-Local.vcxproj -> G:\Important\学习\大一末 小学期\C++ Design\NEU-Mathe-Local\x64\Debug\NEU-Mathe-Local.exe
