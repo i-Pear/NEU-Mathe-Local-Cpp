@@ -46,13 +46,18 @@ public:
 	void _loadImage(int chapter, int section, int index) {
 		ostringstream oss;
 		for (int i = 0; i <= 4; i++) {
-			oss.clear();
+			oss.str("");
 			oss << BasePath << chapter << "\\" << section << "\\" << index << '_' << i << ".jpg";
 			loadImage(oss.str().c_str(), &images[i]);
 		}
-		oss.clear();
+		oss.str("");
 		oss << BasePath << chapter << "\\" << section << "\\" << index << '_' << "ans.jpg";
 		loadImage(oss.str().c_str(), &images[5]);
+	}
+	~ProblemData() {
+		for (int i = 0; i < 6; i++) {
+			freeImage(&images[i]);
+		}
 	}
 };
 

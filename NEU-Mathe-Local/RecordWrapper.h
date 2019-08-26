@@ -31,6 +31,11 @@ public:
 
 	~RecordProvider() { saveFile(); }
 	static void initialize(int chapter, int section) {
+
+		if (currentChapter != -1 && currentSection != -1) {
+			saveFile();
+		}
+
 		currentChapter = chapter;
 		currentSection = section;
 

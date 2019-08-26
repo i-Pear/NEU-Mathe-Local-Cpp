@@ -7,7 +7,6 @@
 // A static toolbox class for controlling forms
 class DisplayManager {
 public:
-	enum WindowType { Main, Welcome, Selector };
 	static FormBase* window;
 
 	static void KeyboardEventWrapper(int key, int event) {
@@ -22,22 +21,22 @@ public:
 	static void TimerEventWrapper(int timerID) {
 		window->timerEventReceiver(timerID);
 	}
-	static void switchWindow(WindowType type, int chapter = 0, int section = 0) {
+	static void switchWindow(int type, int chapter, int section) {
 		// Clear event listeners
 		registerKeyboardEvent(NULL);
 		registerCharEvent(NULL);
 		registerMouseEvent(NULL);
 		registerTimerEvent(NULL);
 		// Remount form class
-		if (type == Main) {
+		if (type == 1) {
 			delete window;
 			window = new FormMain(chapter,section);
 		}
-		if (type == Welcome) {
+		if (type == 0) {
 			delete window;
 			window = new FormWelcome();
 		}
-		if (type == Selector) {
+		if (type == 2) {
 			delete window;
 			window = new FormSelector();
 		}
@@ -55,6 +54,8 @@ public:
 			registerTimerEvent(TimerEventWrapper);
 		}
 
+		window->switchWindow = switchWindow;
+
 		repaint();
 	}
 	static void initialize() {
@@ -62,7 +63,7 @@ public:
 		beginPaint();
 		setTextFont("Microsoft YaHei Light");
 		endPaint();
-		switchWindow(Welcome);
+		switchWindow(0, 1, 1);
 		repaint();
 	}
 	static void repaint() {
@@ -76,7 +77,7 @@ public:
 FormBase* DisplayManager::window = NULL;
 
 int Setup() {
-	initWindow("NEU Mathe Local", 300, 200, FormBase::WinWidth, FormBase::WinHeight);
+	initWindow("NEU Mathe Local - Linear Algebra", 300, 200, FormBase::WinWidth, FormBase::WinHeight);
 	// Must call 'initWindow' before init display manager
 	DisplayManager::initialize();
 	return 0;

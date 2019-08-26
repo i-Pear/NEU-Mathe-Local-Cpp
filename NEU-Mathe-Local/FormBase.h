@@ -5,6 +5,8 @@ class FormBase {
 public:
 	enum listenerMode { charEvent = 1, keyEvent = 2, mouseEvent = 4, timerEvent = 8 };
 
+	void (*switchWindow)(int, int, int) = NULL;
+
 	static int WinWidth;
 	static int WinHeight;
 	// Must be overwritten
@@ -20,7 +22,7 @@ public:
 	bool hasmouseEventReceiver;
 	bool hastimerEventReceiver;
 
-	static int GetCenterX(int charSize, int charCount){
+	static int getCenterX(int charSize, int charCount){
 		return (WinWidth - charSize * charCount) / 2;
 	}
 	FormBase(int mode) {

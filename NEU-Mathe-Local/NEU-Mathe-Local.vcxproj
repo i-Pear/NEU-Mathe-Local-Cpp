@@ -165,8 +165,15 @@
     <ClInclude Include="list.h" />
     <ClInclude Include="FormMain.h" />
     <ClInclude Include="FormSelector.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="vector.h" />
     <ClInclude Include="FormWelcome.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="NEU-Mathe-Local.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\icon.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
