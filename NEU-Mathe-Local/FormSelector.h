@@ -6,7 +6,7 @@ public:
 	void display() {
 
 	}
-	FormSelector():FormBase(mouseEvent) {
+	FormSelector():FormBase(mouseEvent|charEvent) {
 
 	}
 };

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <queue>
 #include <sstream>
+#include <map>
 #include "acllib.h"
 #include "RecordWrapper.h"
 #include "list.h"
@@ -64,24 +65,36 @@ public:
 class IocService {
 private:
 	static const unsigned int maxCapacity;
-	static list<ProblemData> imageList;
+	static list<ProblemData> cachedList;
+	static map<string,ACL_Image> staticList;
 public:
 	static ProblemData& getProblemData (int chapter, int section, int index) {
 		URI uri(chapter, section, index);
 		return getProblemData(uri);
 	}
 	static ProblemData& getProblemData(URI destUri) {
-		for (auto& i : imageList) {
+		for (auto& i : cachedList) {
 			if (i.uri == destUri) {
 				return i;
 			}
 		}
-		imageList.PushFront(ProblemData(destUri));
-		if (imageList.Size() > maxCapacity) {
-			imageList.PopBack();
+		cachedList.PushFront(ProblemData(destUri));
+		if (cachedList.Size() > maxCapacity) {
+			cachedList.PopBack();
 		}
 		/*  这里应该有一个把已存在的数据提到链表最前的feature
 			在链表里实现一下 */
-		return *imageList.begin();
+		return *cachedList.begin();
+	}
+	static ACL_Image* getStaticImage(string name) {
+		auto temp = staticList.find(name);
+		if (temp != staticList.end()) {
+			return &temp->second;
+		}
+		else {
+			staticList.insert(pair<string,ACL_Image>(name,ACL_Image()));
+			loadImage((BasePath + name).c_str(), &staticList[name]);
+			return &staticList[name];
+		}
 	}
 };

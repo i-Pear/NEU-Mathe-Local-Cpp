@@ -6,6 +6,7 @@ public:
 	enum listenerMode { charEvent = 1, keyEvent = 2, mouseEvent = 4, timerEvent = 8 };
 
 	void (*switchWindow)(int, int, int) = NULL;
+	void (*refresh)() = NULL;
 
 	static int WinWidth;
 	static int WinHeight;

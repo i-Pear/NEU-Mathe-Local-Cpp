@@ -66,18 +66,21 @@ public:
 		writter.close();
 	}
 	static Answer getAnswer(int index) {
-		return (Answer)dataArray[index - 1].answer;
+		return (Answer)dataArray[--index].answer;
 	}
 	static int getDoneStatus(int index) {
-		return dataArray[index - 1].hasDone;
+		return dataArray[--index].hasDone;
 	}
 	static int getMarkedStatus(int index) {
-		return dataArray[index - 1].hasMarked;
+		return dataArray[--index].hasMarked;
 	}
 	static void setDoneStatus(int index, int done) {
-		dataArray[index - 1].hasDone = done;
+		dataArray[--index].hasDone = done;
 	}
 	static void setMarkStatus(int index, int marked) {
-		dataArray[index - 1].hasMarked = marked;
+		dataArray[--index].hasMarked = marked;
+	}
+	static int getCount() {
+		return dataArray.Size();
 	}
 };

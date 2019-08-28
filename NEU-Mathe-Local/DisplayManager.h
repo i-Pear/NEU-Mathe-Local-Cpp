@@ -55,6 +55,7 @@ public:
 		}
 
 		window->switchWindow = switchWindow;
+		window->refresh = repaint;
 
 		repaint();
 	}
