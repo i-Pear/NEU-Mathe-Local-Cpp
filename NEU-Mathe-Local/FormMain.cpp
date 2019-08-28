@@ -60,7 +60,6 @@ void FormMain::mouseEventReceiver(int x, int y, int button, int event) {
 }
 
 void FormMain::display() {
-
 	if (!isShowingAnswer) {
 		putImage(&problemData.images[0], (WinWidth - problemData.images[0].width) / 2, (210 - problemData.images[0].height) / 2);
 		putImage(&problemData.images[1], (WinWidth / 2 - problemData.images[1].width) / 2, 230);
@@ -76,20 +75,27 @@ void FormMain::display() {
 			putImageTransparent(IocService::getStaticImage("done.jpg"), 890, 12, 80, 71, WHITE);
 		}
 		ostringstream ossInfo;
+		ossInfo << "Chapter" << chapter << " -> Section" << section << "   ";
 		ossInfo << "Inside this chapter :    Total=" << RecordProvider::countTotal << "    NotDone=" << RecordProvider::countTotal - RecordProvider::countDone
 			<< "    Marked=" << RecordProvider::countMarked;
 		line(0, 493, WinWidth, 493);
 		setTextFont("Segoe UI");
 		setTextSize(18);
-		paintText(10, 498, ossInfo.str().c_str());
+		paintText(10, 497, ossInfo.str().c_str());
 		setBrushColor(RGB(230, 230, 230));
-		rectangle(400, 495, 700, 518);
+		rectangle(550, 495, 900, 518);
 		setBrushColor(RGB(6, 176, 37));
-		rectangle(400, 496, 400 + 300 * RecordProvider::countDone / RecordProvider::countTotal, 517);
+		rectangle(550, 496, 550 + 350 * RecordProvider::countDone / RecordProvider::countTotal, 517);
 
 	}
 	else {
-		putImage(&problemData.images[5], (WinWidth / 2 - problemData.images[5].width) / 2, 250);
+		ostringstream ossAnswer;
+		setTextSize(55);
+		setTextColor(RED);
+		ossAnswer << (char)('A' - 1 + RecordProvider::getAnswer(showingID));
+		paintText(930, 460, ossAnswer.str().c_str());
+		setTextColor(BLACK);
+		putImage(&problemData.images[5], (WinWidth - problemData.images[5].width) / 2, (WinHeight - problemData.images[5].height) / 2);
 	}
 }
 

@@ -15,7 +15,7 @@ void FormSelector::mouseEventReceiver(int x, int y, int button, int event) {
 
 	int selection = -1;
 	{
-		if (y <= WinHeight)selection = 0;
+		if (y <= WinHeight / 2)selection = 0;
 		else selection = 4;
 
 		if (x <= WinWidth / 4)selection += 1;
