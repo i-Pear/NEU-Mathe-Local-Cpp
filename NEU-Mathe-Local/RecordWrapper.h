@@ -28,6 +28,7 @@ public:
 	enum Answer { A = 1, B, C, D } answer;
 	static int currentChapter;
 	static int currentSection;
+	static int countTotal, countMarked, countDone;
 
 	~RecordProvider() { saveFile(); }
 	static void initialize(int chapter, int section) {
@@ -45,12 +46,18 @@ public:
 		reader.open(oss.str(), ios::in);
 
 		dataArray.clear();
+		countTotal = 0;
+		countMarked = 0;
+		countDone = 0;
 		int n;
 		reader >> n;
+		countTotal = n;
 		int tempAns, tempHasDone, tempHasMarked;
 		for (int i = 0; i < n; i++) {
 			reader >> tempAns >> tempHasDone >> tempHasMarked;
 			dataArray.PushBack(RecordUnit(tempAns, tempHasDone, tempHasMarked));
+			if (tempHasDone)countDone++;
+			if (tempHasMarked)countMarked++;
 		}
 		reader.close();
 	}
@@ -75,10 +82,14 @@ public:
 		return dataArray[--index].hasMarked;
 	}
 	static void setDoneStatus(int index, int done) {
-		dataArray[--index].hasDone = done;
+		if (dataArray[--index].hasDone == done) return;
+		dataArray[index].hasDone = done;
+		if (done)countDone++; else countDone--;
 	}
 	static void setMarkStatus(int index, int marked) {
-		dataArray[--index].hasMarked = marked;
+		if (dataArray[--index].hasMarked == marked)return;
+		dataArray[index].hasMarked = marked;
+		if (marked)countMarked++; else countMarked--;
 	}
 	static int getCount() {
 		return dataArray.Size();

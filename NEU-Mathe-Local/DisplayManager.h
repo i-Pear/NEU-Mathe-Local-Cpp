@@ -78,7 +78,7 @@ public:
 FormBase* DisplayManager::window = NULL;
 
 int Setup() {
-	initWindow("NEU Mathe Local - Linear Algebra", 300, 200, FormBase::WinWidth, FormBase::WinHeight);
+	initWindow("NEU Mathe Local C++  - Linear Algebra", 300, 200, FormBase::WinWidth, FormBase::WinHeight);
 	// Must call 'initWindow' before init display manager
 	DisplayManager::initialize();
 	return 0;
