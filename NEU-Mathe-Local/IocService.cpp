@@ -12,7 +12,7 @@ bool operator < (const URI& a, const URI& b) {
 	return a.index < b.index;
 }
 
-
+ostringstream ProblemData::oss;
 
 ProblemData::ProblemData() :uri(0, 0, 0) {} // Build an empty data unit for init
 
@@ -31,7 +31,7 @@ ProblemData::Answer ProblemData::getAnswer() const {
 }
 
 void ProblemData::_loadImage(int chapter, int section, int index) {
-	ostringstream oss;
+	
 	for (int i = 0; i <= 4; i++) {
 		oss.str("");
 		oss << BasePath << chapter << "\\" << section << "\\" << index << '_' << i << ".jpg";

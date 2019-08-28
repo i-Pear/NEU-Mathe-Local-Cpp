@@ -1,5 +1,8 @@
 #include "FormMain.h"
 
+ostringstream FormMain::ossInfo;
+ostringstream FormMain::ossAnswer;
+
 inline void FormMain::loadProblem() {
 	problemData = IocService::getProblemData(URI(chapter, section, showingID));
 	isMarked = RecordProvider::getMarkedStatus(showingID);
@@ -74,7 +77,7 @@ void FormMain::display() {
 			// show done icon
 			putImageTransparent(IocService::getStaticImage("done.jpg"), 890, 12, 80, 71, WHITE);
 		}
-		ostringstream ossInfo;
+		ossInfo.str("");
 		ossInfo << "Chapter" << chapter << " -> Section" << section << "   ";
 		ossInfo << "Inside this chapter :    Total=" << RecordProvider::countTotal << "    NotDone=" << RecordProvider::countTotal - RecordProvider::countDone
 			<< "    Marked=" << RecordProvider::countMarked;
@@ -89,7 +92,7 @@ void FormMain::display() {
 
 	}
 	else {
-		ostringstream ossAnswer;
+		ossAnswer.str("");
 		setTextSize(55);
 		setTextColor(RED);
 		ossAnswer << (char)('A' - 1 + RecordProvider::getAnswer(showingID));

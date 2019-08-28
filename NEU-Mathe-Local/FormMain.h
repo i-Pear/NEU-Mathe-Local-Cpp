@@ -13,6 +13,8 @@ private:
 	bool isShowingAnswer;
 	bool isDone;
 	bool isMarked;
+	static ostringstream ossInfo;
+	static ostringstream ossAnswer;
 public:
 	ProblemData problemData;
 

@@ -22,6 +22,7 @@ bool operator < (const URI&, const URI& );
 
 class ProblemData {
 public:
+	static ostringstream oss;
 	URI uri;
 	ACL_Image images[6];
 	enum Answer { A = 1, B, C, D } answer;
