@@ -78,10 +78,12 @@ public:
 				return i;
 			}
 		}
-		cachedList.PushFront(ProblemData(destUri));
-		if (cachedList.Size() > maxCapacity) {
-			cachedList.PopBack();
+
+		// ERROR HERE
+		if (cachedList.Size() > maxCapacity-1) {
+			//cachedList.PopBack();
 		}
+		cachedList.PushFront(ProblemData(destUri));
 		/*  这里应该有一个把已存在的数据提到链表最前的feature
 			在链表里实现一下 */
 		return *cachedList.begin();

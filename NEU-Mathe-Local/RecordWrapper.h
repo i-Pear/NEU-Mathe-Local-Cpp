@@ -61,7 +61,7 @@ public:
 		writter.open(oss.str(), ios::out);
 		writter << dataArray.Size() << endl;
 		for (auto& i : dataArray) {
-			writter << i.answer << i.hasDone << i.hasMarked << endl;
+			writter << i.answer << " " << i.hasDone << " " << i.hasMarked << endl;
 		}
 		writter.close();
 	}
