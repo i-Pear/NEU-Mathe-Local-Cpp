@@ -15,16 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="hashmap.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="list.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="vector.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="acllib.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="DisplayManager.cpp">
@@ -48,12 +42,12 @@
     <ClCompile Include="RecordWrapper.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="acllib.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="acllib.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="hashmap.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="list.h">

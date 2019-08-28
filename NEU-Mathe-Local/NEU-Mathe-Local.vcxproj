@@ -147,7 +147,6 @@
     <ClCompile Include="RecordWrapper.cpp" />
     <ClCompile Include="DisplayManager.cpp" />
     <ClCompile Include="FormBase.cpp" />
-    <ClCompile Include="hashmap.cpp" />
     <ClCompile Include="IocService.cpp" />
     <ClCompile Include="list.cpp" />
     <ClCompile Include="FormMain.cpp" />
@@ -160,7 +159,6 @@
     <ClInclude Include="RecordWrapper.h" />
     <ClInclude Include="DisplayManager.h" />
     <ClInclude Include="FormBase.h" />
-    <ClInclude Include="hashmap.h" />
     <ClInclude Include="IocService.h" />
     <ClInclude Include="list.h" />
     <ClInclude Include="FormMain.h" />
