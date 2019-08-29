@@ -3,8 +3,8 @@
 #include <sstream>
 #include <map>
 #include "acllib.h"
-#include "RecordWrapper.h"
-#include "list.h"
+#include "RecordWrapper.hpp"
+#include "list.hpp"
 using namespace std;
 
 // Universal Resource Identifier

@@ -50,34 +50,34 @@
     <ClInclude Include="acllib.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="list.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="vector.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="DisplayManager.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="FormBase.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="FormSelector.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="FormMain.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="FormWelcome.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="IocService.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="RecordWrapper.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IocService.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="list.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="RecordWrapper.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FormWelcome.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FormSelector.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FormMain.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FormBase.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayManager.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vector.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

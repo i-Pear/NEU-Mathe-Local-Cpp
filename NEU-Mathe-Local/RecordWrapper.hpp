@@ -3,7 +3,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
-#include "vector.h"
+#include "vector.hpp"
 using namespace std;
 
 // Class declearition

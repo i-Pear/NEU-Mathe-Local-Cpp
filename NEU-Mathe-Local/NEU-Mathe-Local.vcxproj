@@ -156,16 +156,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="acllib.h" />
-    <ClInclude Include="RecordWrapper.h" />
-    <ClInclude Include="DisplayManager.h" />
-    <ClInclude Include="FormBase.h" />
-    <ClInclude Include="IocService.h" />
-    <ClInclude Include="list.h" />
-    <ClInclude Include="FormMain.h" />
-    <ClInclude Include="FormSelector.h" />
+    <ClInclude Include="RecordWrapper.hpp" />
+    <ClInclude Include="DisplayManager.hpp" />
+    <ClInclude Include="FormBase.hpp" />
+    <ClInclude Include="IocService.hpp" />
+    <ClInclude Include="list.hpp" />
+    <ClInclude Include="FormMain.hpp" />
+    <ClInclude Include="FormSelector.hpp" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="vector.h" />
-    <ClInclude Include="FormWelcome.h" />
+    <ClInclude Include="vector.hpp" />
+    <ClInclude Include="FormWelcome.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="NEU-Mathe-Local.rc" />

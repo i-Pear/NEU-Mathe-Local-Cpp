@@ -1,4 +1,4 @@
-#include "FormSelector.h"
+#include "FormSelector.hpp"
 
 void FormSelector::mouseEventReceiver(int x, int y, int button, int event) {
 	if (event != BUTTON_DOWN)return;

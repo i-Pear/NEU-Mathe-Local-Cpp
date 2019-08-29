@@ -1,4 +1,4 @@
-#include "FormWelcome.h"
+#include "FormWelcome.hpp"
 
 void FormWelcome::display() {
 	setTextSize(50);

@@ -1,4 +1,4 @@
-#include "FormBase.h"
+#include "FormBase.hpp"
 
 int FormBase::WinWidth = 980;
 int FormBase::WinHeight = 520;

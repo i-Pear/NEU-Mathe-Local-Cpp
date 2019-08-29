@@ -1,4 +1,4 @@
-#include "DisplayManager.h"
+#include "DisplayManager.hpp"
 
 void DisplayManager::KeyboardEventWrapper(int key, int event) {
 		window->keyEventReceiver(key, event);

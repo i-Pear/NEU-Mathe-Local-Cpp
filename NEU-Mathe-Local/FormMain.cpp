@@ -1,4 +1,4 @@
-#include "FormMain.h"
+#include "FormMain.hpp"
 
 ostringstream FormMain::ossInfo;
 ostringstream FormMain::ossAnswer;
