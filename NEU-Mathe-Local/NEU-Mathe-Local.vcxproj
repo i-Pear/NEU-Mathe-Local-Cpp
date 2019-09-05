@@ -151,7 +151,6 @@
     <ClCompile Include="list.cpp" />
     <ClCompile Include="FormMain.cpp" />
     <ClCompile Include="FormSelector.cpp" />
-    <ClCompile Include="vector.cpp" />
     <ClCompile Include="FormWelcome.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -164,7 +163,6 @@
     <ClInclude Include="FormMain.hpp" />
     <ClInclude Include="FormSelector.hpp" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="vector.hpp" />
     <ClInclude Include="FormWelcome.hpp" />
   </ItemGroup>
   <ItemGroup>

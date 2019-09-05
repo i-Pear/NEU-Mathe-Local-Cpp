@@ -18,9 +18,6 @@
     <ClCompile Include="list.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="vector.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="DisplayManager.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -72,9 +69,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="DisplayManager.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="vector.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="acllib.h">

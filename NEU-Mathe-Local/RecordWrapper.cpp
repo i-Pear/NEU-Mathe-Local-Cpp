@@ -1,6 +1,6 @@
 #include "RecordWrapper.hpp"
 
-Vector<RecordUnit> RecordProvider::dataArray;
+vector<RecordUnit> RecordProvider::dataArray;
 
 int RecordProvider::currentChapter = -1;
 int RecordProvider::currentSection = -1;
@@ -35,7 +35,7 @@ void RecordProvider::initialize(int chapter, int section) {
 		int tempAns, tempHasDone, tempHasMarked;
 		for (int i = 0; i < n; i++) {
 			reader >> tempAns >> tempHasDone >> tempHasMarked;
-			dataArray.PushBack(RecordUnit(tempAns, tempHasDone, tempHasMarked));
+			dataArray.push_back(RecordUnit(tempAns, tempHasDone, tempHasMarked));
 			if (tempHasDone)countDone++;
 			if (tempHasMarked)countMarked++;
 		}
@@ -54,7 +54,7 @@ void RecordProvider::saveFile() {
 		oss << BasePath << currentChapter << "\\" << currentSection << "\\" << "data.txt";
 		ofstream writter;
 		writter.open(oss.str(), ios::out);
-		writter << dataArray.Size() << endl;
+		writter << dataArray.size() << endl;
 		for (auto& i : dataArray) {
 			writter << i.answer << " " << i.hasDone << " " << i.hasMarked << endl;
 		}
@@ -91,5 +91,5 @@ void RecordProvider::setMarkStatus(int index, int marked) {
 }
 
 int RecordProvider::getCount() {
-	return dataArray.Size();
+	return dataArray.size();
 }

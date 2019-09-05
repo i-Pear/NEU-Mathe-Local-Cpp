@@ -3,7 +3,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
-#include "vector.hpp"
+#include <vector>
 using namespace std;
 
 // Class declearition
@@ -23,7 +23,7 @@ public:
 
 class RecordProvider {
 private:
-	static Vector<RecordUnit> dataArray;
+	static vector<RecordUnit> dataArray;
 public:
 	enum Answer { A = 1, B, C, D } answer;
 	static int currentChapter;
