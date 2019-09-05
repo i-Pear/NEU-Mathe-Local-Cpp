@@ -172,7 +172,7 @@ public:
 	}
 	void PopBack()
 	{
-		Erase(end());
+		Erase(--end());
 	}
 	void PushFront(const T& x)
 	{
@@ -201,6 +201,23 @@ public:
 		prev->next = next;
 		next->prev = prev;
 		delete cur;
+	}
+	void MoveFront(iterator pos) {
+		Node* cur = pos.node;
+		Node* delprev = cur->prev;
+		Node* delnext = cur->next;
+
+		delprev->next = delnext;
+		delnext->prev = delprev;
+		
+
+		Node* newcur = begin().node;
+		Node* prev = newcur->prev;
+		Node* newnode = cur;
+		prev->next = newnode;
+		newnode->next = newcur;
+		newnode->prev = prev;
+		newcur->prev = newnode;
 	}
 private:
 	Node* head;

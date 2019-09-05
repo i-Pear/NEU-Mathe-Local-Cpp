@@ -49,7 +49,7 @@ ProblemData::~ProblemData() {
 }
 
 
-const unsigned int IocService::maxCapacity = 20;
+const unsigned int IocService::maxCapacity = 100;
 list<ProblemData> IocService::cachedList;
 map<string, ACL_Image> IocService::staticList;
 
@@ -59,19 +59,20 @@ ProblemData& IocService::getProblemData(int chapter, int section, int index) {
 }
 
 ProblemData& IocService::getProblemData(URI destUri) {
-	for (auto& i : cachedList) {
-		if (i.uri == destUri) {
-			return i;
+	for (auto iter = cachedList.begin(); iter != cachedList.end();iter++) {
+		if (iter->uri == destUri) {
+			cachedList.MoveFront(iter);
+			return *cachedList.begin();
 		}
 	}
 
-	// ERROR HERE
+	// ERROR HERE -- Fixed
 	if (cachedList.Size() > maxCapacity - 1) {
-		//cachedList.PopBack();
+		cachedList.PopBack();
 	}
 	cachedList.PushFront(ProblemData(destUri));
 	/*  这里应该有一个把已存在的数据提到链表最前的feature
-		在链表里实现一下 */
+		在链表里实现一下 */   // -- Fixed
 	return *cachedList.begin();
 }
 
