@@ -109,14 +109,14 @@ public:
 		head = new Node;
 		head->next = head;
 		head->prev = head;
-		List<int>::const_iterator it = l.begin();
+		List<T>::const_iterator it = l.begin();
 		while (it != l.end())
 		{
 			PushFront(*(it++));
 		}
 	}
-	//List<T>& operator=(const List<T>& l);
-	List<T>& operator=(List<int> l)
+
+	List<T>& operator=(List<T> l)
 	{
 		swap(head, l.head);
 		return *this;

@@ -86,9 +86,9 @@ void FormMain::display() {
 		setTextSize(18);
 		paintText(10, 497, ossInfo.str().c_str());
 		setBrushColor(RGB(230, 230, 230));
-		rectangle(550, 495, 900, 518);
+		rectangle(550, 497, 900, 518);
 		setBrushColor(RGB(6, 176, 37));
-		rectangle(550, 496, 550 + 350 * RecordProvider::countDone / RecordProvider::countTotal, 517);
+		rectangle(550, 498, 550 + 350 * RecordProvider::countDone / RecordProvider::countTotal, 517);
 
 	}
 	else {
