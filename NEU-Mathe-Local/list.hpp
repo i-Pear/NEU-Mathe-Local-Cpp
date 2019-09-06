@@ -1,154 +1,130 @@
 #pragma once
+
 template<class T>
-struct ListNode
-{
+class ListNode {
+public:
 	T data;
 	ListNode<T>* prev;
 	ListNode<T>* next;
 
-	ListNode(const T& x = T()) 
-		:data(x)
-		, next(nullptr)
-		, prev(nullptr)
-	{}
-
+	ListNode(const T& x = T()) : data(x), next(nullptr), prev(nullptr) {}
 };
 
-//迭代器的构造
 template<class T, class Ref, class Ptr>
-struct ListIterator
-{
+class ListIterator {
+public:
 	typedef ListNode<T> Node;
 	typedef ListIterator<T, Ref, Ptr> Self;
-	Node*  node;
+	Node* node;
 
 	ListIterator(Node* node)
-		: node(node)
-	{}
+		: node(node) {}
 
-	Ref operator*()
-	{
-		return  node->data;
-	}
-	Ptr operator->()
-	{
-		return & node->data;
-		//return &(operator*());
+	Ref operator*() {
+		return node->data;
 	}
 
-	//++it; --> it.operator++(&it)
-	Self& operator--()
-	{
-		 node =  node->prev;
+	Ptr operator->() {
+		return &node->data;
+	}
+
+	Self& operator--() {
+		node = node->prev;
 		return *this;
 	}
-	Self operator--(int)
-	{
+
+	Self operator--(int) {
 		Self tmp(*this);
-		 node =  node->prev;
+		node = node->prev;
 		return tmp;
 	}
-	Self& operator++()
-	{
-		 node =  node->next;
+
+	Self& operator++() {
+		node = node->next;
 		return *this;
 	}
-	Self operator++(int)
-	{
+
+	Self operator++(int) {
 		Self tmp(*this);
-		 node =  node->next;
+		node = node->next;
 		return tmp;
 	}
-	bool operator != (const Self& s)
-	{
-		return  node != s. node;
+
+	bool operator!=(const Self& s) {
+		return node != s.node;
 	}
-	bool operator == (const Self& s)
-	{
-		return  node == s. node;
+
+	bool operator==(const Self& s) {
+		return node == s.node;
 	}
 };
 
 template<class T>
-class List
-{
+class List {
 	typedef ListNode<T> Node;
 public:
 	typedef ListIterator<T, T&, T*> iterator;
 	typedef ListIterator<T, const T&, const T*> const_iterator;
 
-
-	iterator begin()
-	{
+	iterator begin() {
 		return iterator(head->next);
 	}
 
-	iterator end()
-	{
+	iterator end() {
 		return iterator(head);
 	}
 
-	const_iterator begin() const
-	{
+	const_iterator begin() const {
 		return const_iterator(head->next);
 	}
 
-	const_iterator end() const
-	{
+	const_iterator end() const {
 		return const_iterator(head);
 	}
-	List()
-	{
+
+	List() {
 		head = new Node;
 		head->next = head;
 		head->prev = head;
 	}
 
-	List(const List<T>& l)
-	{
+	List(const List<T>& l) {
 		head = new Node;
 		head->next = head;
 		head->prev = head;
-		List<T>::const_iterator it = l.begin();
-		while (it != l.end())
-		{
-			PushFront(*(it++));
+		for (auto& i : l) {
+			PushBack(i);
 		}
 	}
 
-	List<T>& operator=(List<T> l)
-	{
-		swap(head, l.head);
-		return *this;
+	List<T>& operator=(List<T> l) {
+		Clear();
+		for (auto& i : l) {
+			PushBack(i);
+		}
 	}
 
-	~List()
-	{
+	~List() {
 		Clear();
 		delete head;
 		head = nullptr;
 	}
 
-	size_t Size()
-	{
-		size_t size = 0;
-		for (const auto& e : *this)
-		{
+	long Size() {
+		long size = 0;
+		for (const auto& e : *this) {
 			++size;
 		}
 		return size;
 	}
 
-	bool Empty()
-	{
+	bool Empty() {
 		return head->next == head;
-		//return begin() == end();
 	}
-	void Clear()
-	{
+
+	void Clear() {
 		Node* cur = head->next;
-		while (cur != head)
-		{
+		while (cur != head) {
 			Node* next = cur->next;
 			delete cur;
 
@@ -158,33 +134,29 @@ public:
 		head->prev = head;
 	}
 
-	void PushBack(const T& x)
-	{
-		//Insert(end(),x); 
-
+	void PushBack(const T& x) {
 		Node* newnode = new Node(x);
 		Node* tail = head->prev;
 		tail->next = newnode;
 		newnode->prev = tail;
 		newnode->next = head;
 		head->prev = newnode;
-
 	}
-	void PopBack()
-	{
+
+	void PopBack() {
 		Erase(--end());
 	}
-	void PushFront(const T& x)
-	{
+
+	void PushFront(const T& x) {
 		Insert(begin(), x);
 	}
-	void PopFront()
-	{
+
+	void PopFront() {
 		Erase(begin());
 	}
-	void Insert(iterator pos, const T& x)
-	{
-		Node* cur = pos. node;
+
+	void Insert(iterator pos, const T& x) {
+		Node* cur = pos.node;
 		Node* prev = cur->prev;
 		Node* newnode = new Node(x);
 		prev->next = newnode;
@@ -192,9 +164,9 @@ public:
 		newnode->prev = prev;
 		cur->prev = newnode;
 	}
-	void Erase(iterator pos)
-	{
-		Node* cur = pos. node;
+
+	void Erase(iterator pos) {
+		Node* cur = pos.node;
 		Node* prev = cur->prev;
 		Node* next = cur->next;
 
@@ -202,6 +174,7 @@ public:
 		next->prev = prev;
 		delete cur;
 	}
+
 	void MoveFront(iterator pos) {
 		Node* cur = pos.node;
 		Node* delprev = cur->prev;
@@ -209,7 +182,6 @@ public:
 
 		delprev->next = delnext;
 		delnext->prev = delprev;
-		
 
 		Node* newcur = begin().node;
 		Node* prev = newcur->prev;
@@ -219,6 +191,7 @@ public:
 		newnode->prev = prev;
 		newcur->prev = newnode;
 	}
+
 private:
 	Node* head;
 };
