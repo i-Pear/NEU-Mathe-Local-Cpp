@@ -148,7 +148,6 @@
     <ClCompile Include="DisplayManager.cpp" />
     <ClCompile Include="FormBase.cpp" />
     <ClCompile Include="IocService.cpp" />
-    <ClCompile Include="list.cpp" />
     <ClCompile Include="FormMain.cpp" />
     <ClCompile Include="FormSelector.cpp" />
     <ClCompile Include="FormWelcome.cpp" />

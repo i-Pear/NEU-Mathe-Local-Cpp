@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="list.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="DisplayManager.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
